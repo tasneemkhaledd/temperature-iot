@@ -1,0 +1,96 @@
+<!-- <div>
+  <label for="username">Username:</label>
+  <input type="text" id="username" [(ngModel)]="username" />
+</div>
+<div>
+  <label for="password">Password:</label>
+  <input type="password" id="password" [(ngModel)]="password" />
+</div>
+<div>
+  <button (click)="login()">Login</button>
+</div>
+ -->
+ <!-- <form action="action_page.php" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Login</h1>
+    <p>Please enter your email and password.</p>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" [(ngModel)]="this.email"name="email" id="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" [(ngModel)]="this.password"name="password" id="password" required>
+    <div *ngIf="logged">
+      <h4>Auth was submitted successfully!</h4>
+      <button class="btn btn-success" >Add</button>
+    </div> -->
+
+    <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required> -->
+
+    
+
+   
+
+    <!-- <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button (click)="searchemail()" type="submit" class="signupbtn" >Sign Up</button>
+    </div> -->
+    <!-- <div *ngIf="submitted">
+      <h4>Auth was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newAuth()">Add</button>
+    </div> -->
+  <!-- </div>
+</form> -->
+<!-- src/app/components/login/login.component.html -->
+<!-- <form (ngSubmit)="searchemail()" style="border: 1px solid #ccc">
+  <div class="container">
+    <h1>Login</h1>
+    <p>Please enter your email and password.</p>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" [(ngModel)]="this.email" name="email" id="email" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" [(ngModel)]="this.password" name="password" id="password" required>
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="loginbtn" ((click))="searchemail()">Login</button>
+    </div>
+    <div *ngIf="logged">
+      <h4>Auth was submitted successfully!</h4>
+      <button class="btn btn-success" >Add</button>
+    </div>
+  </div>
+</form> -->
+<div class="row justify-content-center mt-5">
+  <div class="col-md-4">
+      <form [formGroup]="Loginform" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" type="text" formControlName="email" required>
+        </div>
+
+        <div class="form-group">
+          <label>password</label>
+          <input class="form-control" type="password" formControlName="password" required>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" type="submit">Login</button>
+        </div>
+      </form>
+      <form [formGroup]="Loginform" (ngSubmit)="onsign()">
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" type="submit">SignUp</button>
+        </div>
+      </form>
+      <div *ngIf="errorMessage">
+        <h1>{{ errorMessage }}</h1>
+      </div>
+  </div>
+</div>
+

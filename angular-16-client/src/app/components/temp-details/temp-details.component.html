@@ -1,0 +1,89 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentTemp._id">
+    <h4>Temperature Details</h4>
+    <div>
+      <label><strong>The Temperature is :</strong></label> {{ currentTemp.payload }}
+    </div>
+    <div *ngIf="currentTemp.payload > 25">
+      <label><strong>Temperature is considered high</strong></label>
+    </div>
+    <div *ngIf="currentTemp.payload <= 25">
+      <label><strong>Temperature is considered normal</strong></label>
+    </div>
+    <div >
+      <label><strong>Timestamp : </strong></label> {{currentTemp.createdAt | date: 'medium'}}
+    </div>
+
+    <!-- <a class="badge badge-warning"
+      routerLink="/temps/{{ currentTemp._id }}">
+      Edit
+    </a> -->
+  </div>
+
+  <div *ngIf="!currentTemp">
+    <br />
+    <p>Please click on a Tutorial...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentTemp._id" class="edit-form">
+    <h4>Temp</h4>
+    <form>
+      <div class="form-group">
+        <label for="payload">Temp</label>
+        <input
+          type="text"
+          class="form-control"
+          id="payload"
+          [(ngModel)]="currentTemp.payload"
+          name="payload"
+        />
+      </div>
+      <div class="form-group">
+        <label for="temperature">Temperature</label>
+        <input
+          type="text"
+          class="form-control"
+          id="temperature"
+          [(ngModel)]="currentTemp.temperature"
+          name="temperature"
+        />
+      </div>
+
+    </form>
+
+    <!-- <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentTutorial.published"
+      (click)="updatePublished(false)"
+    >
+      UnPublish
+    </button>
+    <button
+      *ngIf="!currentTutorial.published"
+      class="badge badge-primary mr-2"
+      (click)="updatePublished(true)"
+    >
+      Publish
+    </button> -->
+
+    <button class="badge badge-danger mr-2" (click)="deleteTemp()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateTemp()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentTemp._id">
+    <br />
+    <p>Cannot access this Temp...</p>
+  </div>
+</ng-template>

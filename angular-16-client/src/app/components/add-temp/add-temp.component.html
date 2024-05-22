@@ -1,0 +1,35 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="payload"
+          required
+          [(ngModel)]="temp.payload"
+          name="location"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="temperature">Temperature</label>
+        <input
+          class="form-control"
+          id="temperature"
+          required
+          [(ngModel)]="temp.temperature"
+          name="temperature"
+        />
+      </div>
+
+      <button (click)="saveTemp()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Temp was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newTemp()">Add</button>
+    </div>
+  </div>
+</div>

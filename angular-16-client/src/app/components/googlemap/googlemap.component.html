@@ -1,0 +1,26 @@
+<h1>Location of Sensors In Google Map</h1>
+  <div class="google-map">
+    <google-map height="800px"
+            width="600px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)">
+            <map-marker  [position]="markerPosition" 
+            [options]="markerOptions"
+            (mapClick)="onMarkerClick()" >
+        </map-marker>
+            <map-info-window >
+                <div>
+                  <h3>Marker Information</h3>
+                  <p>This is the marker info window content.</p>
+                </div>
+            </map-info-window> 
+            
+    </google-map>
+    </div>
+    
+
+  
+<div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div>

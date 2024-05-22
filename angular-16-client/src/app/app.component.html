@@ -1,0 +1,29 @@
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">Temperature</a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="temps" class="nav-link">Temp</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a routerLink="add" class="nav-link">Add</a>
+      </li> -->
+      <li class="nav-item">
+        <a routerLink="signup" class="nav-link">Sign up</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="login" class="nav-link">log in</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="googlemap" class="nav-link">Map</a>
+      </li>
+        <!-- <li class="nav-item" *ngIf="isLoggedIn">
+          <a href="/profile" class="nav-link" routerLink="profile">{{ auth.email }}</a>
+        </li> -->
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+.list-group-item[ngStyle] {
+  /* Ensure styles are applied properly when using ngStyle */
+  display: block;
+}

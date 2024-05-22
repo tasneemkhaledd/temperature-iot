@@ -1,0 +1,48 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by payload"
+        id="payload"
+        name="payload"
+        [(ngModel)]="payload"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchLocation()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Temps List</h4>
+    <ul class="list-group" >
+      <li
+        class="list-group-item"
+        *ngFor="let temp of temps?.slice(-23); let i = index"
+        [class.active]="i == currentIndex"
+        [ngStyle]="{'background-color': temp.payload > 25 ? 'red' : 'green'}"
+        (click)="setActiveTemp(temp, i)"
+        
+      >
+        {{ temp.payload }}
+      </li>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTemps()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <app-temp-details
+      [viewMode]="true"
+      [currentTemp]="currentTemp"
+    ></app-temp-details>
+  </div>
+</div>
